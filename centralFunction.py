@@ -1,18 +1,24 @@
 
 def determineMarketPrice (priceData):
-
     marketSummary = []
-
     return marketSummary
 
-def potentialRiskCoefficient (marketSummary, sellerRating):
+def potentialRisk (marketSummary, sellerRating):
+    PRC = float
+    return PRC
 
-    riskCoefficient = float
+def potentialProfitability (marketSummary, PRC):
+    PPC = float
+    return PPC
 
-    return riskCoefficient
+def marketEffervescence (purchaseData):
+    MEC = float
+    return MEC
 
-def potentialProfitability (marketSummary, riskCoefficient):
+def rudolfElasticity (outlierSniper):
+    REC = float
+    return REC
 
-    profitabilityCoefficient = float
-
-    return profitabilityCoefficient
+def bullCoefficient (PRC, PPC, MEC, REC):
+    BC = float
+    return BC

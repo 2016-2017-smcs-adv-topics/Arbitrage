@@ -1,5 +1,5 @@
 
-from collections import defaultdict
+from collections import Counter
 
 class arbObject:
 
@@ -11,28 +11,28 @@ class arbObject:
         marketEffervescence()
         self.finalCoefficient = bullCoefficient()
 
-    def determinePurchase(self, finalCoefficient):
-        self.finalCoefficient
+    def determinePurchase(self):
 
-
-def shellSortPrice (priceData):
-
-    #The following finds indecies of dupes in a list (need to decipher)
-    D = defaultdict(list)
-    for i, item in enumerate(priceData):
-        D[item].append(i)
-        D = {k: v for k, v in D.items() if len(v) > 1}
-    #weight items with more duplicate prices
-
-    # shell sort the weighted/deduped list
 
 def determineMarketPrice (priceData):
 
-    marketSummary = quickSortPrice(priceData)  #determine 1st-99th percentiles
-    twoFive = []
+    marketSummary = Counter(priceData)  #returns a dictionary with counted values
+    priceOccurance = {}
 
-    for x in range(0,24):
-        twoFive.append(marketSummary[x])
+    j = 0
+
+    for key in priceOccurance.keys():
+        for i in range(0,99):
+            j += 1
+            priceOccurance[key] = j
+
+    # need to get the keys and values from the marketSummary
+
+    for value in priceOccurance.values():
+        for i in range(0,99):
+            amtDupes = marketSummary[i, None]
+            price = marketSummary[None, i]
+            priceOccurance[value] =  amtDupes * price
 
     return marketSummary
 

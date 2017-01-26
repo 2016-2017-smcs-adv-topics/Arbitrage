@@ -9,30 +9,41 @@ class arbObject:
         potentialProfitability()
         rudolfElasticity()
         marketEffervescence()
-        self.finalCoefficient = bullCoefficient()
+        bullCoefficient()
 
     def determinePurchase(self):
-
+        print("hello") #placeholder to suppress errors
 
 def determineMarketPrice (priceData):
 
     marketSummary = Counter(priceData)  #returns a dictionary with counted values
-    priceOccurance = {}
+    priceOccurance = []
+    possibleMaxima = []
 
     j = 0
 
-    for key in priceOccurance.keys():
-        for i in range(0,99):
-            j += 1
-            priceOccurance[key] = j
+    for key, value in marketSummary.items():
+        for j in range(len(marketSummary)- 1):
+            beforePoint = marketSummary[j-1]
+            afterPoint = marketSummary[j+1]
+            occurances = key * value
+            slope = ((beforePoint[0] + afterPoint[0]) / 2)
+            priceOccurance.append((j, occurances, slope))
 
-    # need to get the keys and values from the marketSummary
+            if (0 < slope < 0.5):
+                possibleMaxima.append(slope)
 
-    for value in priceOccurance.values():
-        for i in range(0,99):
-            amtDupes = marketSummary[i, None]
-            price = marketSummary[None, i]
-            priceOccurance[value] =  amtDupes * price
+    j = possibleMaxima[possibleMaxima[1]]
+
+    for x in range(len(possibleMaxima) -1):
+        if possibleMaxima[x] < possibleMaxima[j]:
+            j+=1
+        else:
+            possibleMaxima[x] = possibleMaxima[j]
+
+
+
+
 
     return marketSummary
 

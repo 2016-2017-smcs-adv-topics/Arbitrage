@@ -32,6 +32,7 @@ def determineMarketPrice (priceData):
                 possibleMaxima.append((slope, occurances))
 
     occurancesOnly = [int(i[1]) for i in possibleMaxima]
+    "''"
     localMaxima = []
 
     if len(possibleMaxima) == 1:
@@ -43,11 +44,10 @@ def determineMarketPrice (priceData):
         j = 1
         while j < len(reverseOrderOccurances):
             localMaxima.append((possibleMaxima[reverseOrderOccurances[j]], reverseOrderOccurances[j]))
+            j += 1
         print("Global Maxima found at %s and local maxima at %s" % (globalMaxima, localMaxima))
 
-    for
-
-
+    i = 1
 
     return marketSummary
 

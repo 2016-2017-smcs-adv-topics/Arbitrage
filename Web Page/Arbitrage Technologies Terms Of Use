@@ -1,0 +1,42 @@
+<html> 
+	<head> 
+		<title>Arbitrage Technologies Terms Of Use</title> 
+			<style> 
+				body { font-family: Lora;}
+			</style> 
+
+			<body background="Arbitragebackground.jpg">
+
+  
+ 	<!--Terms Of Use-->
+
+	</head> 
+
+		<body> 
+			<h1>Our Terms Of Use</h1>
+				<text> 
+
+				Put Terms Of Use Here
+
+				</text>
+
+		</body>
+
+		
+		<!--Footer-->
+
+		<body>
+				<center>
+				<div class="footer-legal">
+					<div class="footercopyright">Copyright © 2017 Arbitrage Inc. All rights reserved.</div>
+						<div class="footerlinks">
+							<a class="footer-links" href="">Home</a>
+							<a class="footer-links" href="">Privacy Policy</a>
+							<a class="footer-links" href="">Terms of Use</a>
+							<a class="footer-links" href="">Legal</a>
+						</div>
+					</div>
+				</center>
+		</body>
+
+</html>

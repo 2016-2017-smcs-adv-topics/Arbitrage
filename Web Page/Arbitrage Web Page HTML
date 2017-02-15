@@ -1,0 +1,138 @@
+<html> 
+	<head> 
+
+<!--Font Color-->
+
+	<style>
+		body { font-family: Lora;}
+	</style>
+
+
+<!--Title Of Web Page-->
+
+	 	<title>Arbitrage Technologies</title>
+
+
+<!--Search Bar Properties-->
+
+		<style type="text/css">
+		#search{
+			width: 100px;
+			padding: 7px; 
+			border: 1px; 
+		}
+		#submit{
+			padding: 7px; 
+			background: green; 
+		}
+		</style>
+
+
+<!--Title On Top Of Page-->	
+
+			<h1>Arbitrage Technologies</h1>
+
+
+<!--Search Bar-->
+
+	</head> 
+		<h2>Search</h2>
+			<form>
+				<input type="text" name="Search Bar">
+					<maxlength="15" id="Search">
+					<input type="submit" value="Search">
+			</form>
+
+
+<!--Background Photo-->
+
+	<body background="Arbitragebackground.jpg">
+
+    </head>
+
+
+<!--Login-->
+
+    <body>
+
+        <h2>Login</h2>
+        	<form name="login">
+            	Username:<input type="text" name="userid"/>
+            	Password:<input type="password" name="pswrd"/>
+            	<input type="button" onclick="check(this.form)" value="Login"/>
+            	<input type="reset" value="Cancel"/>
+        	</form>
+        		<script language="javascript">
+            		function check(form) { 
+                	if(form.userid.value == "myuserid" && form.pswrd.value == "mypswrd") {
+                    window.open('target.html')
+                }
+                else {
+                    alert("No Password or User Found")
+                }
+            }
+        </script>
+
+     </body>
+
+
+<!--About Arbitrage Technlogies-->
+
+        <h2>About</h2>
+			<body>
+				<strong>
+					<font size="4.0">
+						<blockquote>
+							Arbitrage Technologies is a systematic and intelligent way to invest your money. We have produced several logical and efficient algorithms which invest your money safely and securly. We buy and sell a plethora of commodities and fixed assets with a substantail margin of safety. This ensures our investors make consistent upward returns with low risk. Currently our algortithim is being used on eBay, Craigslist and Amazon. Below are our three investment portfolios:  
+						</blockquote>
+					</font size>
+				</strong>
+			</body>
+
+
+<!--Three Portfolio Charts-->
+
+		<body>
+			<table>
+				<tr>
+					<th>
+			  			Portfolio 1 
+					</th>
+					<th>
+						Portfolio 2 
+					</th>
+					<th>
+						Portfolio 3 
+					</th>
+				</tr>
+			</table>
+		</body> 
+
+
+<!--iOS Download-->
+
+		<body>
+
+			<h2>Download Our iOS App</h2>
+				<a href="DownloadLink">
+  					 <button>Download From The App Store</button>
+				</a>
+
+		</body>	
+
+
+<!--Footer-->
+
+		<body>
+				<center>
+				<div class="footer-legal">
+					<div class="footercopyright">Copyright © 2017 Arbitrage Inc. All rights reserved.</div>
+						<div class="footerlinks">
+							<a class="footer-links" href="">Privacy Policy</a>
+							<a class="footer-links" href="">Terms of Use</a>
+							<a class="footer-links" href="">Legal</a>
+						</div>
+					</div>
+				</center>
+		</body>
+	</html>

@@ -32,7 +32,6 @@ def determineMarketPrice (priceData):
                 possibleMaxima.append((slope, occurances))
 
     occurancesOnly = [int(i[1]) for i in possibleMaxima]
-    "''"
     localMaxima = []
 
     if len(possibleMaxima) == 1:

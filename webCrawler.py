@@ -3,9 +3,7 @@ import BeautifulSoup
 import requests
 from centralFunction import arbObject
 
-url = 'http://roswell.stmarksschool.org/~arbitrage/api/v1/test/1'
-
-print(requests.put(url, params = data).text)
+dbURL = 'http://roswell.stmarksschool.org/~arbitrage/api/v1/test/1'
 
 class Arbitrage(scrapy.Spider):
 
@@ -18,6 +16,7 @@ class Arbitrage(scrapy.Spider):
         for item in soup.select('#ListViewInner li'):
 
             data = {
+
                 'name': item.find_next("h3", class_="lvtitle"),
                 'price': item.find_next("li", class_="lvprice prc")
             }

@@ -1,14 +1,15 @@
 
 from collections import Counter
-
+import math
 class arbObject:
 
     def __init__(self):
         determineMarketPrice()
-        potentialRisk()
-        potentialProfitability()
-        rudolfElasticity()
-        marketEffervescence()
+        mean()
+        riskFactor()
+        findStandardDeviation()
+        totalDemand()
+        potentialProfit()
         bullCoefficient()
 
     def determinePurchase(self):
@@ -32,6 +33,7 @@ def determineMarketPrice (priceData):
                 possibleMaxima.append((slope, occurances))
 
     occurancesOnly = [int(i[1]) for i in possibleMaxima]
+    "''"
     localMaxima = []
 
     if len(possibleMaxima) == 1:
@@ -50,19 +52,37 @@ def determineMarketPrice (priceData):
 
     return marketSummary
 
-def potentialRisk (marketSummary, sellerRating):
+def mean(marketSummary):
+
+    return sum(marketSummary)*1.0/len(marketSummary)
+
+def findStandardDeviation(marketSummary):
+    length = len(marketSummary )
+    m = mean(marketSummary)
+    total_sum = 0
+    for i in range(length):
+        total_sum += (marketSummary[i]-m)**2
+    stanDev = total_sum*1.0/length
+    return math.sqrt(stanDev)
+
+
+
+
+
+def potentialRisk (marketSummary, sellerRating, stanDev):
+    SD =  ()
     PRC = float
     return PRC
 
-def potentialProfitability (marketSummary, PRC):
+def riskFactor (marketSummary, PRC):
     PPC = float
     return PPC
 
-def marketEffervescence (purchaseData):
+def totalDemand (purchaseData):
     MEC = float
     return MEC
 
-def rudolfElasticity (outlierSniper):
+def potentialProfit (outlierSniper):
     REC = float
     return REC
 

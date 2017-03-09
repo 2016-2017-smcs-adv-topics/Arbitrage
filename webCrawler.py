@@ -1,11 +1,10 @@
-import scrapy
+import Scrapy
 import BeautifulSoup
 import requests
-from centralFunction import arbObject
 
 dbURL = 'http://roswell.stmarksschool.org/~arbitrage/api/v1/test/1'
 
-class Arbitrage(scrapy.Spider):
+class Arbitrage(Scrapy.Spider):
 
     name = 'arbi'
     dbURL = 'http://roswell.stmarksschool.org/~arbitrage/api/v1/test/1'
@@ -27,7 +26,7 @@ class Arbitrage(scrapy.Spider):
         next_page = response.select(NEXT_PAGE_SELECTOR)
 
         if next_page:
-            yield scrapy.Request(
+            yield Scrapy.Request(
                 response.urljoin(next_page),
                 callback=self.parse
             )

@@ -1,0 +1,31 @@
+from scrapy.http import Request
+from scrapy.selector import Selector
+from scrapy.spider import BaseSpider
+
+
+class Spider(BaseSpider):
+    name = "theSpider"
+    domains = ['Auto']
+    departments = {"All Departments": "0"}
+    keyword = 'Auto'
+
+    allowed_domains = ['ebay.com']
+
+    def start_requests(self):
+        for domain in self.domains:
+            if domain in self.departments:
+                url = 'http://www.ebay.com/search/search-ng.do?search_query=%s&ic=16_0&Find=Find&search_constraint=%s' % (self.keyword, self.departments.get(domain))
+                print "YIELDING"
+                yield Request(url)
+
+    def parse(self, response):
+        print "IN PARSE"
+        sel = Selector(response)
+        links = sel.select('//a[@class="ListItemLink"]/@href')
+        for link in links:
+            href = link.extract()[0]
+            yield Request('http://www.ebay.com/' + href, self.parse_data)
+
+    def parse_data(self, response):
+        # do your actual crawling here
+        print "IN PARSE DATA"

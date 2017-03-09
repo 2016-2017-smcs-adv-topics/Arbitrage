@@ -10,7 +10,9 @@ class arbObject:
         findStandardDeviation()
         totalDemand()
         potentialProfit()
-        bullCoefficient()
+        bullCoefficient(
+            
+
 
     def determinePurchase(self):
         print("hello") #placeholder to suppress errors
@@ -51,10 +53,12 @@ def determineMarketPrice (priceData):
     i = 1
 
     return marketSummary
+#maketSummary
 
 def mean(marketSummary):
 
     return sum(marketSummary)*1.0/len(marketSummary)
+#mean
 
 def findStandardDeviation(marketSummary):
     length = len(marketSummary )
@@ -65,27 +69,74 @@ def findStandardDeviation(marketSummary):
     stanDev = total_sum*1.0/length
     return math.sqrt(stanDev)
 
+#stanDev
+
+def findGlobalMax(marketSummary):
+    #need work here
 
 
+return globalMax
+
+def findS(GlobalMax, LocalMax,standDev):
+    S = (GlobalMax - LocalMax)/standDev
+    return S
+#S is how many standard deviation to the left is the local max ( 0 derivative) from the global max
+
+def finds
+    s = 1;
+    return s
+# s is the coefficient for S, will be adjusted accordingly
 
 
-def potentialRisk (marketSummary, sellerRating, stanDev):
-    SD =  ()
-    PRC = float
-    return PRC
+def findLowRating(pricedata):
+    Fivestar = float
+    Fourstar = float
+    Threestar = float
+    Twostar = float
+    Onestar = float
+    C = (Threestar + Twostar + Onestar)/(Fivestar + Fourstar + Threestar + Twostar + Onestar)
+    return C
+#C is percentage of 3-star rating and below
 
-def riskFactor (marketSummary, PRC):
-    PPC = float
-    return PPC
 
-def totalDemand (purchaseData):
-    MEC = float
-    return MEC
+def findc
+    c = 1;
+    return c
+# c is the coefficient for C, will be adjusted accordingly
 
-def potentialProfit (outlierSniper):
-    REC = float
-    return REC
 
-def bullCoefficient (PRC, PPC, MEC, REC):
-    BC = float
+def findriskFactor ( sellerRating, stanDev):
+    riskfactor = (1-s * S)*(c * C)
+    return R
+#R is the risk Factor
+
+def findr
+    r = 1;
+    return r
+# r is the coefficient for R, will be adjusted accordingly
+
+
+def findtotalDemand (purchaseData):
+    D = float
+    return D
+
+# D is the total number of transactions in the last 30 days
+
+def findd
+    d = 1;
+    return d
+# d is the coefficient for D, will be adjusted accordingly
+
+
+def potentialProfit (GlobalMax, LocalMax):
+    P =(GlobalMax - LocalMax)/GlobalMax
+    return P
+
+def findp
+    p = 1;
+    return p
+# p is the coefficient for P, will be adjusted accordingly
+
+def findbullCoefficient (d,D,r,R,p,P):
+    BC = r*R*d*D/(p*P)
     return BC

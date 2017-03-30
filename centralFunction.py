@@ -1,4 +1,5 @@
 
+
 from collections import Counter
 import math
 class arbObject:
@@ -11,7 +12,7 @@ class arbObject:
         totalDemand()
         potentialProfit()
         bullCoefficient(
-            
+
 
 
     def determinePurchase(self):
@@ -72,17 +73,32 @@ def findStandardDeviation(marketSummary):
 #stanDev
 
 def findGlobalMax(marketSummary):
-    #need work here
 
+    localMaxList = [(float, int, float)]
+    for i in marketSummary:
+        coordinate = tuple(i)
+        x = coordinate[0]
+        y = coordinate[1]
+        derivative = float
+        if derivative < 0.2 and derivative > -0.2:
+            localMaxList.append((derivative, x, y))
+        else:
+            pass
+    if len(localMaxList) > 1:
+        yList = float(i[2] for i in localMaxList)
+        sortedDeriv = sorted(yList, reversed)
+        globalMaxY = sortedDeriv[0]
 
-return globalMax
+return globalMaxY
+#globalMax Y is the frequncy 
+#globalmax X is the price
 
 def findS(GlobalMax, LocalMax,standDev):
     S = (GlobalMax - LocalMax)/standDev
     return S
 #S is how many standard deviation to the left is the local max ( 0 derivative) from the global max
 
-def finds
+def finds():
     s = 1;
     return s
 # s is the coefficient for S, will be adjusted accordingly
@@ -99,18 +115,18 @@ def findLowRating(pricedata):
 #C is percentage of 3-star rating and below
 
 
-def findc
+def findc():
     c = 1;
     return c
 # c is the coefficient for C, will be adjusted accordingly
 
 
 def findriskFactor ( sellerRating, stanDev):
-    riskfactor = (1-s * S)*(c * C)
+    riskfactor = (1- s * S)*(c * C)
     return R
 #R is the risk Factor
 
-def findr
+def findr():
     r = 1;
     return r
 # r is the coefficient for R, will be adjusted accordingly
@@ -122,7 +138,7 @@ def findtotalDemand (purchaseData):
 
 # D is the total number of transactions in the last 30 days
 
-def findd
+def findd():
     d = 1;
     return d
 # d is the coefficient for D, will be adjusted accordingly
@@ -132,7 +148,7 @@ def potentialProfit (GlobalMax, LocalMax):
     P =(GlobalMax - LocalMax)/GlobalMax
     return P
 
-def findp
+def findp():
     p = 1;
     return p
 # p is the coefficient for P, will be adjusted accordingly

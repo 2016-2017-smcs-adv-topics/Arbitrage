@@ -1,19 +1,15 @@
-
-
 from collections import Counter
 import math
 class arbObject:
 
-    def __init__(self):
-        determineMarketPrice()
+    def __init__(self, priceData):
+        marketPrice = self.determineMarketPrice(priceData)
         mean()
         riskFactor()
         findStandardDeviation()
         totalDemand()
         potentialProfit()
-        bullCoefficient(
-
-
+        bullCoefficient()
 
     def determinePurchase(self):
         print("hello") #placeholder to suppress errors

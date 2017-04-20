@@ -3,13 +3,14 @@ from bs4 import BeautifulSoup
 import requests
 from scrapy.spiders import Rule
 from scrapy.linkextractors import LinkExtractor
+import json
 
-dbURL = 'http://roswell.stmarksschool.org/~arbitrage/api/v1/test/1'
+dbURL = 'https://roswell.stmarksschool.org/~arbitrage/api/v1/CallawayData'
 
 class Arbitrage(scrapy.Spider):
 
     name = 'arbi'
-    dbURL = 'http://roswell.stmarksschool.org/~arbitrage/api/v1/test/1'
+    dbURL = 'https://roswell.stmarksschool.org/~arbitrage/api/v1/CallawayData'
     start_urls = ["http://www.ebay.com/sch/i.html?_from=R40&_nkw=CALLAWAY%20GOLF%202015%20GREAT%20BIG%20BERTHA%20DRIVER&rt=nc&LH_ItemCondition=4&_udlo&_udhi&LH_PrefLoc=1&LH_AllListings=1"]
 
     Rules = (Rule(LinkExtractor(allow=(), restrict_xpaths=('//a[@class="pg"]',)), callback="parse", follow=True),)
@@ -23,9 +24,7 @@ class Arbitrage(scrapy.Spider):
                 'price': item.find_next("li", class_="lvprice prc")
             }
 
-            print(data)
-            dataStatement = requests.put(dbURL, params=data).text
-            print(dataStatement)
+            print(requests.post(dbURL, params=data).text)
 
         next_page = response.xpath('.//a[@class="pg"]/@href').extract()
 

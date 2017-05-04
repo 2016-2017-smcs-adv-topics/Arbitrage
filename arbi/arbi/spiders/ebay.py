@@ -12,16 +12,15 @@ class EbaySpider(scrapy.Spider):
     dbURL = 'https://roswell.stmarksschool.org/~arbitrage/api/v1/CallawayData'
 
     def parse(self, response):
-        print(response.body)
         soup = BeautifulSoup(response.body, 'html.parser')
-        for item in soup.select('#ListViewInner li'):
-
+        for item in soup.select('#ListViewInner > li'):
             data = {
-                'name': item.find_next("h3", class_="lvtitle"),
-                'price': item.find_next("li", class_="lvprice prc")
+                'Name': item.find("h3", class_="lvtitle").get_text().strip(),
+                'Price': item.find("li", class_="lvprice prc").find("span").get_text().strip()
             }
 
-            print(json.loads(requests.post(dbURL, params=data)).text)
+            requests.post(self.dbURL, params=data)
+            print(data)
 
         next_page = response.xpath('.//a[@class="pg"]/@href').extract()
 

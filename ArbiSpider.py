@@ -1,4 +1,5 @@
 import scrapy
+import soup as soup
 from bs4 import BeautifulSoup
 import requests
 from scrapy.spiders import Rule
@@ -12,10 +13,11 @@ class ArbiSpider(scrapy.Spider):
     name = 'arbi'
     dbURL = 'https://roswell.stmarksschool.org/~arbitrage/api/v1/CallawayData'
     start_urls = ["http://www.ebay.com/sch/i.html?_from=R40&_nkw=CALLAWAY%20GOLF%202015%20GREAT%20BIG%20BERTHA%20DRIVER&rt=nc&LH_ItemCondition=4&_udlo&_udhi&LH_PrefLoc=1&LH_AllListings=1"]
-
+    pages = int(soup.select("select.pagination__pages__selector option")[-1].text.split(None, 1)[1])
     Rules = (Rule(LinkExtractor(allow=(), restrict_xpaths=('//a[@class="pg"]',)), callback="parse", follow=True),)
 
     def parse(self, response):
+        for page in range(2, pages):
         soup = BeautifulSoup(response.body, 'html.parser')
         for item in soup.select('#ListViewInner li'):
 

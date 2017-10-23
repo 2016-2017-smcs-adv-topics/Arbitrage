@@ -18,7 +18,7 @@ class ArbiSpider(scrapy.Spider):
 
     def parse(self, response):
         for page in range(2, pages):
-        soup = BeautifulSoup(response.body, 'html.parser')
+            soup = BeautifulSoup(response.body, 'html.parser')
         for item in soup.select('#ListViewInner li'):
 
             data = {

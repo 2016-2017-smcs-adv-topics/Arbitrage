@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import requests
 import json
 
-
 class EbaySpider(scrapy.Spider):
     name = "ebay"
     allowed_domains = ["ebay.com"]
@@ -16,7 +15,7 @@ class EbaySpider(scrapy.Spider):
         for item in soup.select('#ListViewInner > li'):
             data = {
                 'Name': item.find("h3", class_="lvtitle").get_text().strip(),
-                'Price': item.find("li", class_="lvprice prc").find("span").get_text().strip()
+                'Price': item.find("li", class_="lvprice prc").find("span").get_text().strip('$')
             }
 
             requests.post(self.dbURL, params=data)
